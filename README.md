@@ -6,7 +6,7 @@ Using Eclips
  - Run-> Run confighration
  - switch to argument tab.
  - In program arguments enter all your INnputes
-    eg. 1,2,EAST
+    eg. PLACE 1,2,EAST
         MOVE
         MOVE
         LEFT
