@@ -16,13 +16,21 @@ public class robot {
 					String[] input = args[1].split(","); 
 					int x= Integer.parseInt(input[0].trim());
 					int y= Integer.parseInt(input[1].trim());
-					String dir = input[2];
-					if(x<4 && y<4 && x>=0 && y>=0) {
+					
+						if(x<4 && y<4 && x>=0 && y>=0) {
 						Map<String, List<String>> diractionMap = new HashMap<>();
 						diractionMap.put("NORTH",Arrays.asList("WEST", "EAST"));
 						diractionMap.put("EAST",Arrays.asList("NORTH", "SOUTH"));
 						diractionMap.put("WEST",Arrays.asList("SOUTH", "NORTH"));
 						diractionMap.put("SOUTH",Arrays.asList("EAST", "WEST"));
+						
+						String dir = "";
+						if(diractionMap.get(input[2].trim())!=null) {
+							dir = input[2];
+						} else {
+							System.out.println("Initial Direction is invalid");
+							System.exit(0);
+						}
 						
 						List<String> sides = Arrays.asList("LEFT", "RIGHT");
 						
@@ -49,7 +57,8 @@ public class robot {
 								if(sides.contains(args[i].toUpperCase())) {
 									dir = diractionMap.get(dir).get(sides.indexOf(args[i].toUpperCase()));
 								}else {
-									System.out.println("PLeas valid Direction");
+									System.out.println("Pleas enter valid Input");
+									System.exit(0);
 								}
 							} 
 						}
